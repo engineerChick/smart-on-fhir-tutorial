@@ -32,7 +32,9 @@ var app = new Vue({
 
     methods: {
         User: function() {
-            return this.user = 'fname' + 'lname';
+            var self = this;
+            
+            return this.user = 'fname' +' '+ 'lname';
         },
         updateDemographics: function() {
             var body = {

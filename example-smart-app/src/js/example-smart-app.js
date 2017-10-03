@@ -144,12 +144,14 @@
 
   window.drawVisualization = function(p) {
     $('#holder').show();
-    $('#navbarSupportedContent').show();
+    //$('#navbarSupportedContent').show();
     $('#loading').hide();
-    // $('#fname').html(p.fname);
-    // $('#lname').html(p.lname);
+    'fname': p.fname,
+    'lname': p.lname,
+    'birthdate': p.birthdate
+    //$('#lname').html(p.lname);
     // $('#gender').html(p.gender);
-     $('#birthdate').html(p.birthdate);
+    // $('#birthdate').html(p.birthdate);
     // $('#age').html(p.age);
     // $('#height').html(p.height);
     // $('#systolicbp').html(p.systolicbp);
@@ -157,5 +159,6 @@
     // $('#ldl').html(p.ldl);
     // $('#hdl').html(p.hdl);
   };
+
 
 })(window);
