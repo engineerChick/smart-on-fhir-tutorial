@@ -42,11 +42,10 @@ a#navbarDropdownMenuLink:hover  {
     vertical-align: middle;
     text
 }
-#name {
+/*#name {
     text-align: left;
     width: 194px !important;
-
-}
+}*/
 
 table.one {
     height: 55px !important;
