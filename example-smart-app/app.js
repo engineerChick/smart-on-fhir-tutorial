@@ -33,7 +33,6 @@ var app = new Vue({
     methods: {
         User: function() {
             var self = this;
-            
             return this.user = 'fname' +' '+ 'lname';
         },
         updateDemographics: function() {
@@ -83,3 +82,7 @@ var app = new Vue({
     }
 });
 app.updateDemographics();
+
+new Vue ({
+    el: .fullName
+});
