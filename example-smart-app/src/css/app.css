@@ -1,0 +1,183 @@
+body {
+    font-family: 'Arial';
+    font-weight: 400;
+    font-style: normal;
+    color: #333333;
+    text-align: center;
+    background:-webkit-linear-gradient(270deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(21, 82, 113, 1) 100%, rgba(21, 82, 113, 1) 100%) no-repeat;
+    background:-moz-linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(21, 82, 113, 1) 100%, rgba(21, 82, 113, 1) 100%) no-repeat;
+    background:linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(21, 82, 113, 1) 100%, rgba(21, 82, 113, 1) 100%) no-repeat;
+}
+
+html {
+    height: 100%;
+}
+
+.demographics_1 {
+    background-color:rgba(21, 82, 113, 1);
+    color: white;
+}
+
+a#navbarDropdownMenuLink:hover  {
+    color: #999595;
+}
+
+.demographics_2 {
+  border-width:0px;
+  height:55px;
+  background-color:rgba(21, 82, 113, 1);
+  border:none;
+  border-radius:0px;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
+
+.label {
+    font-size: 14px;
+    color: #ffffff;
+    display: inline-block;
+    height: 70px;
+    vertical-align: middle;
+    text
+}
+#name {
+    text-align: left;
+    width: 194px !important;
+
+}
+
+table.one {
+    height: 55px !important;
+    width: auto;
+    font-size: 12px;
+    text-align: left;
+    color: #ffffff;
+    border: 0px;
+    line-height: 14px;
+
+}
+th, td {
+    padding: 1px 10px 1px 10px;
+}
+
+.table th {
+    border: none;
+}
+
+.appContainer_div {
+ border: none;
+ min-width:460px;
+ min-height:337px;
+ border-radius:10px;
+ -moz-box-shadow:0px 0px 5px rgba(0, 0, 0, 0.349019607843137);
+ -webkit-box-shadow:0px 0px 5px rgba(0, 0, 0, 0.349019607843137);
+ box-shadow:0px 0px 5px rgba(0, 0, 0, 0.349019607843137);
+ border-top-left-radius:10px;
+
+}
+
+.applet {
+    border-width: 0px;
+    max-width: 460px;
+    min-width: 460px;
+    background-color: #F2F2F2;
+    margin: 10px;
+}
+
+.img {
+    position: fixed !important;
+    display: inline-block;
+    top:0;
+    right:0;
+    height: 60px;
+}
+
+@media (min-width: 1200px) and (max-width: 1499px) {
+    .col-xl {
+        min-width: 460px;
+    }
+}
+
+@media (min-width: 1500px) {
+    .col-xl {
+        min-width: 500px;
+    }
+ }
+
+.tableHeading {
+    font-size: 14px;
+    font-family: Arial Bold, Arial;
+    font-weight: 700;
+    font-style: normal;
+    text-align: left;
+    color: #155271;
+    height: 24px;
+}
+
+.tableSubHeading {
+    font-size: 11px;
+    font-family: Arial Bold, Arial;
+    font-weight: 700;
+    font-style: normal;
+    text-align: left;
+    color: #555555;
+    height: 20px;
+}
+
+.tableInfomation {
+    font-size: 11px;
+    font-family: Arial;
+    font-weight: 400;
+    font-style: normal;
+    text-align: left;
+    color: #555555;
+    height: 20px;
+}
+/*smart css below*/
+#holder {
+  display: none;
+}
+
+.spinner {
+  margin: 100px auto 0;
+  width: 70px;
+  text-align: center;
+}
+
+.spinner > div {
+  width: 18px;
+  height: 18px;
+  background-color: #000;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}

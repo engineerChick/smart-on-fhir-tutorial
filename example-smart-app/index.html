@@ -1,13 +1,26 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
+<head>
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
-    <title>engineerChick Example-SMART-App</title>
 
-    <link rel='stylesheet' type='text/css' href='./src/css/example-smart-app.css'>
-  </head>
-  <body>
+    <title>Patient FHIR</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-range/3.0.3/moment-range.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/then-request/2.2.0/request.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" />
+    <link href="./src/css/app.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<!-- bootstrap import
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/> -->
+
+<div id="app">
+
     <div id='errors'>
     </div>
     <div id="loading" class="spinner">
@@ -15,78 +28,161 @@
       <div class="bounce2"></div>
       <div class="bounce3"></div>
     </div>
-    <div id='holder' >
-      <h2>Example-SMART-App</h2>
 
-      <h2>Patient Resource</h2>
-      <table>
-        <tr>
-          <th>First Name:</th>
-          <td id='fname'></td>
-        </tr>
-        <tr>
-          <th>Last Name:</th>
-          <td id='lname'></td>
-        </tr>
-        <tr>
-          <th>Gender:</th>
-          <td id='gender'></td>
-        </tr>
-        <tr>
-          <th>Date of Birth:</th>
-          <td id='birthdate'></td>
-        </tr>
-        <tr>
-          <th>Age:</th>
-          <td id='age'></td>
-        </tr>
-      </table>
-      <h2>Observation Resource</h2>
-      <table>
-        <tr>
-          <th>Height:</th>
-          <td id='height'></td>
-        </tr>
-        <tr>
-          <th>Systolic Blood Pressure:</th>
-          <td id='systolicbp'></td>
+<nav class="navbar navbar-expand-lg demographics_1">
+    <a class="navbar-brand" href="#"><img src="KRM_Logo_White_Text_290x50.png" width="290" height="50"></a>
+    <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-        </tr>
-        <tr>
-          <th>Diastolic Blood Pressure:</th>
-          <td id='diastolicbp'></td>
-        </tr>
-        <tr>
-          <th>LDL:</th>
-          <td id='ldl'></td>
-        </tr>
-        <tr>
-          <th>HDL:</th>
-          <td id='hdl'></td>
-        </tr>
-      </table>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <p class="nav-link">{{User()}}</p>
+            </li>
+            <li class="nav-item active">
+                <p class="nav-link">| Sex: {{sex}}</p>
+            </li>
+            <li class="nav-item active">
+                <p class="nav-link"> Age: {{age}} </p>
+            </li>
+            <li class="nav-item active">
+                <p class="nav-link">Dob: {{dob}}</p>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Address</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <p class="dropdown-item">Street: {{' ' + street}}</p>
+                    <p class="dropdown-item">City: {{' ' + city}} </p>
+                    <p class="dropdown-item">State: {{' ' + state}}</p>
+                    <p class="dropdown-item">Zip Code: {{' ' + zipCode}}</p>
+                    <p class="dropdown-item">District: {{' ' + district}}</p>
+                    <p class="dropdown-item">Country: {{' ' + country}}</p>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Phone</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <p class="dropdown-item">Home: {{' ' + home}}</p>
+                    <p class="dropdown-item">Mobile: {{' ' + mobile}}</p>
+                    <p class="dropdown-item">Work: {{' ' + work}}</p>
+                </div>
+            </li>
+        </ul>
+
     </div>
-    <script src='./lib/es6-shim-0.35.1.min.js'></script>
-    <script src='./src/js/example-smart-app.js'></script>
-    <script src='./lib/fhir-client-v0.1.11.js'></script>
+</nav>
 
-    <!-- Prevent session bleed caused by single threaded embedded browser and sessionStorage API -->
-    <!-- https://github.com/cerner/fhir-client-cerner-additions -->
-    <script src='./lib/fhir-client-cerner-additions-1.0.0.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script>
-      extractData().then(
-        //Display Patient Demographics and Observations if extractData was success
-        function(p) {
-          drawVisualization(p);
-        },
 
-        //Display 'Failed to call FHIR Service' if extractData failed
-        function() {
-          $('#loading').hide();
-          $('#errors').html('<p> Failed to call FHIR Service </p>');
-        }
-      );
-    </script>
-  </body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-6 applet appContainer_div">
+            <table class="table table-sm table-responsive ">
+                <tr>
+                    <th colspan="3" class="tableHeading">VITALS</th>
+                </tr>
+                <tr class="table-responsive">
+                    <th class="tableSubHeading">Type</th>
+                    <th class="tableSubHeading">Result</th>
+                    <th class="tableSubHeading">Last</th>
+                </tr>
+                <tr class="tableInfomation">
+                    <td>BPS</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="tableInfomation">
+                    <td>BPD</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="tableInfomation">
+                    <td>Pulse</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="tableInfomation">
+                    <td>RR</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="tableInfomation">
+                    <td>Temp</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="tableInfomation">
+                    <td>SpO<sub>2</sub></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="tableInfomation">
+                    <td>Pain</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="tableInfomation">
+                    <td>Weight</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="tableInfomation">
+                    <td>Height</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="tableInfomation">
+                    <td>BMI</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="tableInfomation">
+                    <td>Circum/Girth</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col-sm-12 col-md-6 applet appContainer_div">
+            <table class="table table-sm table-responsive ">
+
+                <!-- <table class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl table table-sm table-responsive applet appContainer_div"> -->
+                <tr>
+                    <th colspan="3" class="tableHeading">PATIENT SURVEY RESULTS</th>
+                </tr>
+                <tr>
+                    <th class="tableSubHeading">Question</th>
+                    <th class="tableSubHeading">Answer</th>
+                    <th class="tableSubHeading">Last</th>
+                </tr>
+                <tr v-for="item in items" class="tableInfomation">
+                    <td>{{item.questionKey}}</td>
+                    <td>{{item.answer}}</td>
+                    <td>{{item.lastDay}}</td>
+                </tr>
+            </table>
+        </div>
+        <div v-show='show !=show' class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl applet appContainer_div">Container 3 </div>
+        <div v-show='show !=show' class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl applet appContainer_div">Container 4 </div>
+        <div v-show='show !=show' class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl applet appContainer_div">Container 5 </div>
+        <div v-show='show !=show' class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl applet appContainer_div">Container 6 </div>
+    </div>
+</div>
+
+</div>
+<script src="app.js"></script>
+<script src='./lib/es6-shim-0.35.1.min.js'></script>
+<script src='./src/js/example-smart-app.js'></script>
+<script src='./lib/fhir-client-v0.1.11.js'></script>
+
+<!-- Prevent session bleed caused by single threaded embedded browser and sessionStorage API -->
+<!-- https://github.com/cerner/fhir-client-cerner-additions -->
+<script src='./lib/fhir-client-cerner-additions-1.0.0.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</body>
 </html>
