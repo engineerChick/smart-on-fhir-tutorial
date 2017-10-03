@@ -144,6 +144,7 @@
 
   window.drawVisualization = function(p) {
     $('#holder').show();
+    $('#navbarSupportedContent').show();
     $('#loading').hide();
     // $('#fname').html(p.fname);
     // $('#lname').html(p.lname);
