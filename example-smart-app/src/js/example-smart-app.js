@@ -146,7 +146,9 @@
     $('#holder').show();
     //$('#navbarSupportedContent').show();
     $('#loading').hide();
-    $('#lname').html(p.lname);
+    // $('#fname').html(p.fname);
+    // $('#lname').html(p.lname);
+    $('#name').html(p.lname + ', '+ p.fname);
     $('#gender').html(p.gender);
     $('#birthdate').html(p.birthdate);
     $('#age').html(p.age);

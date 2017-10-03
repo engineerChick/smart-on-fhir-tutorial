@@ -84,5 +84,6 @@ var app = new Vue({
 app.updateDemographics();
 
 new Vue ({
-    el: .fullName
+    el: .fullName,
+    
 });
