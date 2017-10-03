@@ -146,18 +146,15 @@
     $('#holder').show();
     //$('#navbarSupportedContent').show();
     $('#loading').hide();
-    'fname': p.fname,
-    'lname': p.lname,
-    'birthdate': p.birthdate
-    //$('#lname').html(p.lname);
-    // $('#gender').html(p.gender);
-    // $('#birthdate').html(p.birthdate);
-    // $('#age').html(p.age);
-    // $('#height').html(p.height);
-    // $('#systolicbp').html(p.systolicbp);
-    // $('#diastolicbp').html(p.diastolicbp);
-    // $('#ldl').html(p.ldl);
-    // $('#hdl').html(p.hdl);
+    $('#lname').html(p.lname);
+    $('#gender').html(p.gender);
+    $('#birthdate').html(p.birthdate);
+    $('#age').html(p.age);
+    $('#height').html(p.height);
+    $('#systolicbp').html(p.systolicbp);
+    $('#diastolicbp').html(p.diastolicbp);
+    $('#ldl').html(p.ldl);
+    $('#hdl').html(p.hdl);
   };
 
 
