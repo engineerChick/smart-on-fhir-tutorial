@@ -21,18 +21,6 @@
 
 <div id="app">
 
-    <div id='errors'>
-    </div>
-    <div id="loading" class="spinner">
-      <div class="bounce1"></div>
-      <div class="bounce2"></div>
-      <div class="bounce3"></div>
-    </div>
-
-    <div id='holder'>
-        <span>Date of Birth:</span>
-              <!-- <span id='birthdate'></span> -->
-
 
 <nav class="navbar navbar-expand-lg demographics_1">
     <a class="navbar-brand" href="#"><img src="./src/images/KRM_Logo_White_Text_290x50.png" width="290" height="50"></a>
@@ -40,12 +28,10 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent holder">
+    <div class="collapse navbar-collapse holder" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <p  id='name' class="nav-link ">
-                    
-                </p>
+                <p id='name' class="nav-link"></p>
             </li>
             <li class="nav-item active">
                 <p class="nav-link">| Sex: {{sex}}</p>
@@ -80,8 +66,15 @@
     </div>
 </nav>
 
+<div id='errors'>
+</div>
+<div id="loading" class="spinner">
+  <div class="bounce1"></div>
+  <div class="bounce2"></div>
+  <div class="bounce3"></div>
+</div>
 
-<div class="container">
+<div class="container holder">
     <div class="row justify-content-center">
         <div class="col-sm-12 col-md-6 applet appContainer_div">
             <table class="table table-sm table-responsive ">
@@ -175,7 +168,6 @@
         <div v-show='show !=show' class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl applet appContainer_div">Container 5 </div>
         <div v-show='show !=show' class="col-12 col-sm-6 col-md-4 col-lg-4 col-xl applet appContainer_div">Container 6 </div>
     </div>
-</div>
 </div>
 
 </div>

@@ -143,7 +143,7 @@
   }
 
   window.drawVisualization = function(p) {
-    $('#holder').show();
+    $('.holder').show();
     //$('#navbarSupportedContent').show();
     $('#loading').hide();
     // $('#fname').html(p.fname);

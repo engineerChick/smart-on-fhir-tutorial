@@ -136,7 +136,7 @@ th, td {
     height: 20px;
 }
 /*smart css below*/
-#holder {
+.holder {
   display: none;
 }
 
