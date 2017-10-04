@@ -4,7 +4,7 @@ var app = new Vue({
     el: '#app',
     data: {
         show: true,
-        street: 'Cave Quarter Drive',
+        street: '555 Cave Road',
         city: 'Charles Town',
         state: 'WV',
         zipCode: '25414',
