@@ -149,9 +149,9 @@
     // $('#fname').html(p.fname);
     // $('#lname').html(p.lname);
     $('#name').html(p.lname + ', '+ p.fname);
-    $('#gender').html(p.gender);
-    $('#birthdate').html(p.birthdate);
-    $('#age').html(p.age);
+    $('#gender').html('Sex: ' + p.gender);
+    $('#birthdate').html('DOB: ' + p.birthdate);
+    $('#age').html('Age: ' + p.age);
     $('#height').html(p.height);
     $('#systolicbp').html(p.systolicbp);
     $('#diastolicbp').html(p.diastolicbp);
