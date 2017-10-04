@@ -144,10 +144,7 @@
 
   window.drawVisualization = function(p) {
     $('.holder').show();
-    //$('#navbarSupportedContent').show();
     $('#loading').hide();
-    // $('#fname').html(p.fname);
-    // $('#lname').html(p.lname);
     $('#name').html(p.lname + ', '+ p.fname);
     $('#gender').html('Sex: ' + p.gender);
     $('#birthdate').html('DOB: ' + p.birthdate);
