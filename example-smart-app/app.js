@@ -13,6 +13,16 @@ var app = new Vue({
         home: '304-261-5555',
         mobile: '304-489-5555',
         work: '304-876-5555',
+        answer: 'amazon',
+        days: '5',
+        answer: 'yes',
+        swelling: 'no',
+        glucose: 90,
+        systolic: 120,
+        diastolic: 80,
+        steps: '5500 steps',
+        weight: '175 pounds',
+        timeStamp: '5:30',
         items: []
     },
 
