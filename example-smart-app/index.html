@@ -45,20 +45,20 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Address</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <p class="dropdown-item">Street: {{' ' + street}}</p>
-                    <p class="dropdown-item">City: {{' ' + city}} </p>
-                    <p class="dropdown-item">State: {{' ' + state}}</p>
-                    <p class="dropdown-item">Zip Code: {{' ' + zipCode}}</p>
-                    <p class="dropdown-item">District: {{' ' + district}}</p>
-                    <p class="dropdown-item">Country: {{' ' + country}}</p>
+                    <p class="dropdown-item">Street: {{user.street}}</p>
+                    <p class="dropdown-item">City: {{user.city}} </p>
+                    <p class="dropdown-item">State: {{user.state}}</p>
+                    <p class="dropdown-item">Zip Code: {{user.zipCode}}</p>
+                    <p class="dropdown-item">District: {{user.district}}</p>
+                    <p class="dropdown-item">Country: {{user.country}}</p>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Phone</a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <p class="dropdown-item">Home: {{' ' + home}}</p>
-                    <p class="dropdown-item">Mobile: {{' ' + mobile}}</p>
-                    <p class="dropdown-item">Work: {{' ' + work}}</p>
+                    <p class="dropdown-item">Home: {{user.home}}</p>
+                    <p class="dropdown-item">Mobile: {{user.mobile}}</p>
+                    <p class="dropdown-item">Work: {{user.work}}</p>
                 </div>
             </li>
         </ul>
