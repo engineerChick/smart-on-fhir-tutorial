@@ -5,7 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge' />
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 
-    <title>Patient FHIR</title>
+    <title>Survey on FHIR</title>
     <script src="https://npmcdn.com/vue/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-range/3.0.3/moment-range.min.js"></script>
@@ -151,15 +151,19 @@
                 <tr>
                     <th colspan="3" class="tableHeading">PATIENT SURVEY RESULTS</th>
                 </tr>
-                <tr class="table table-secondary">
+                <tr v-if="surveyResponses.length > 0" class="table table-secondary">
                     <th class="tableSubHeading">Question</th>
                     <th class="tableSubHeading">Answer</th>
                     <th class="tableSubHeading">Last</th>
                 </tr>
-                <tr v-for="item in items" class="tableInfomation">
-                    <td>{{item.questionKey}}</td>
-                    <td>{{item.answer}}</td>
-                    <td>{{item.lastDay}}</td>
+                <tr v-else>
+                    <th v-if="surveyLoading" colspan="3" class="tableSubheading">Loading...</th>
+                    <th v-else colspan="3" class="tableSubheading">No survey results</th>
+                </tr>
+                <tr v-for="response in surveyResponses" class="tableInfomation">
+                    <td>{{response.questionKey}}</td>
+                    <td>{{response.answer}}</td>
+                    <td>{{response.lastDay}}</td>
                 </tr>
             </table>
         </div>
