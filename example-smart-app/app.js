@@ -68,7 +68,7 @@ var app = new Vue({
 
         var options = {
     method: 'GET',
-    url: 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/ea1bde71-201f-4578-8afa-195f17a3fb61',
+    url: 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/1234',
     headers: {
         accept: 'application/fhir+json',
         'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61Y'
