@@ -106,7 +106,7 @@ request(options, function(error, response, body) {
             //     });
             //     console.log(vueInstance.ohcResponses);
 
-    });
+    }
 }
 });
 app.updateDemographics();
