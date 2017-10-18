@@ -90,7 +90,8 @@ var app = new Vue({
         };
         axios.get(url, config)
         .then(function(response){
-            console.log(response);
+            console.log(response.birthdate);
+            console.log(JSON.stringify(response));
         })
         .catch(function(error){
             console.log('ohc error', error);
