@@ -89,7 +89,7 @@ var app = new Vue({
             }
         }
         axios.get(url, config)
-        .then(response){
+        .then(funcion(response){
             try {
                     var onparse = JSON.parse(response);
                     resolve(onparse);
@@ -97,7 +97,7 @@ var app = new Vue({
                 } catch (e) {
                     reject('OHC API Error: json parse err', e);
                 }
-            };
+            });
 
             console.log('medDetails', JSON.stringify(response));
 
