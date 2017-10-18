@@ -87,7 +87,7 @@ var app = new Vue({
                     vueInstance.ohcResponses.push(ohcObj);
 
                 });
-                console.log(ohcResponses[]);
+                console.log(ohcResponses);
 
     });
     }
