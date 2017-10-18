@@ -89,25 +89,18 @@ var app = new Vue({
             }
         }
         axios.get(url, config)
-        .then(function (response) {
-            var uni = _.uniqBy(response.Items, function(o) {
-                console.log('o.vitals ' + o.vitals);
-                return o.vitals;
+        .then((response) {
+            try {
+                    var onparse = JSON.parse(response);
+                    resolve(onparse);
+                    console.log('onparse results ', JSON.stringify(onparse));
+                } catch (e) {
+                    reject('OHC API Error: json parse err', e);
+                }
             });
 
             console.log('medDetails', JSON.stringify(response));
 
-            _.each(uni, function(row) {
-                    var ohcObj = {};
-                    // rowObj.question = _.replace(_.get(row, 'question.S'), /['"]+/g, '');
-                    // rowObj.questionKey = _.replace(_.get(row, 'questionKey.S'), /['"]+/g, '');
-                    // rowObj.answer = _.replace(_.get(row, 'response.S'), /['"]+/g, '');
-                    //
-
-                    vueInstance.ohcResponses.push(ohcObj);
-
-                });
-                console.log(vueInstance.ohcResponses);
 
             });
     }
