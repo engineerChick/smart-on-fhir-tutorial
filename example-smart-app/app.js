@@ -107,7 +107,8 @@ var app = new Vue({
                 });
                 console.log(vueInstance.ohcResponses);
 
-    });
+            });
+    }
 }
 });
 app.updateDemographics();
