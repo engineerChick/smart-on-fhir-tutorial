@@ -95,6 +95,8 @@ var app = new Vue({
                 return o.vitals;
             });
 
+            console.log('medDetails', JSON.stringify(response));
+
             _.each(uni, function(row) {
                     var ohcObj = {};
                     // rowObj.question = _.replace(_.get(row, 'question.S'), /['"]+/g, '');
