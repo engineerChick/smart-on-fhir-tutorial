@@ -87,7 +87,7 @@ var app = new Vue({
                 'accept': 'application/fhir+json',
                 'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61'
             }
-        }
+        };
         axios.get(url, config)
         .then(funcion(response){
             console.log(response);
