@@ -59,6 +59,22 @@ var app = new Vue({
                 });
             vueInstance.surveyLoading = false;
         });
+    },
+
+    ohcVitals: function() {
+        const url = 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/' + id
+        var config = {
+            headers: {
+                'accept': 'application/fhir+json',
+                'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61'
+            }
+        }
+        axios.get(url, config)
+        .then(function (response) {
+            var uni = _.uniqBy(res.Items, function(o) {
+                console.log('o.vitals ' + o.vitals);
+                return o.vitals;
+            )}
     }
     }
 });
