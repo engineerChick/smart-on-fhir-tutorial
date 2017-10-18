@@ -58,6 +58,7 @@ var app = new Vue({
                     }
 
                 });
+                console.log(vueInstance.surveyResponses);
             vueInstance.surveyLoading = false;
         });
     },
