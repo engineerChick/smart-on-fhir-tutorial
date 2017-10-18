@@ -64,37 +64,37 @@ var app = new Vue({
     },
 
     ohcVitals: function() {
-        
-        // var options = {
-        //     method: 'GET',
-        //     url: 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/1234',
-        //     headers: {
-        //         'accept': 'application/fhir+json',
-        //         'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61Y'
-        //     }
-        // };
-        //
-        // request(options, function(error, response, body) {
-        //     if (error) return console.error('Failed: %s', error.message);
-        //     // var patient = JSON.parse(response);
-        //     console.log('patient ' + response);
-        //     console.log('Success: ', body);
-        // });
-        const url = 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/1234';
-        var config = {
+
+        var options = {
+            method: 'GET',
+            url: 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/1234',
             headers: {
-                'accept': 'application/fhir+json',
-                'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61'
+                accept: 'application/fhir+json',
+                'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61Y'
             }
         };
-        axios.get(url, config)
-        .then(function(response){
-            console.log(response.birthdate);
-            console.log(JSON.stringify(response));
-        })
-        .catch(function(error){
-            console.log('ohc error', error);
+
+        request(options, function(error, response, body) {
+            if (error) throw new Error(error);
+
+            console.log(body);
         });
+
+        // const url = 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/1234';
+        // var config = {
+        //     headers: {
+        //         'accept': 'application/fhir+json',
+        //         'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61'
+        //     }
+        // };
+        // axios.get(url, config)
+        // .then(function(response){
+        //     console.log(response.birthdate);
+        //     console.log(JSON.stringify(response));
+        // })
+        // .catch(function(error){
+        //     console.log('ohc error', error);
+        // });
     }
 }
 });
