@@ -74,7 +74,7 @@ var app = new Vue({
             var uni = _.uniqBy(res.Items, function(o) {
                 console.log('o.vitals ' + o.vitals);
                 return o.vitals;
-            )}
+            });
     }
     }
 });
