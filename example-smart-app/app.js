@@ -16,6 +16,7 @@ var app = new Vue({
             work: '304-876-5555'
         },
         surveyResponses: [],
+        ohcResponses: [],
         surveyLoading: true
     },
 
@@ -75,6 +76,19 @@ var app = new Vue({
                 console.log('o.vitals ' + o.vitals);
                 return o.vitals;
             });
+
+            _.each(uni, function(row) {
+                    var ohcObj = {};
+                    // rowObj.question = _.replace(_.get(row, 'question.S'), /['"]+/g, '');
+                    // rowObj.questionKey = _.replace(_.get(row, 'questionKey.S'), /['"]+/g, '');
+                    // rowObj.answer = _.replace(_.get(row, 'response.S'), /['"]+/g, '');
+                    //
+
+                    vueInstance.ohcResponses.push(ohcObj);
+
+                });
+                console.log(ohcResponses[]);
+
     });
     }
 }
