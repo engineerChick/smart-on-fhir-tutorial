@@ -89,7 +89,7 @@ var app = new Vue({
             }
         }
         axios.get(url, config)
-        .then(funcion(response) {
+        .then(funcion(response){
             console.log(response);
         })
         .catch(function(error){
