@@ -65,34 +65,48 @@ var app = new Vue({
 
     ohcVitals: function() {
         var vueInstance = this;
-        const url = 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/' + id
-        var config = {
-            headers: {
-                'accept': 'application/fhir+json',
-                'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61'
-            }
-        }
-        axios.get(url, config)
-        .then(function (response) {
-            var uni = _.uniqBy(response.Items, function(o) {
-                console.log('o.vitals ' + o.vitals);
-                return o.vitals;
-            });
 
-            _.each(uni, function(row) {
-                    var ohcObj = {};
-                    // rowObj.question = _.replace(_.get(row, 'question.S'), /['"]+/g, '');
-                    // rowObj.questionKey = _.replace(_.get(row, 'questionKey.S'), /['"]+/g, '');
-                    // rowObj.answer = _.replace(_.get(row, 'response.S'), /['"]+/g, '');
-                    //
+        var options = {
+    method: 'GET',
+    url: 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/ea1bde71-201f-4578-8afa-195f17a3fb61',
+    headers: {
+        accept: 'application/fhir+json',
+        'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61Y'
+    }
+};
 
-                    vueInstance.ohcResponses.push(ohcObj);
+request(options, function(error, response, body) {
+    if (error) return console.error('Failed: %s', error.message);
 
-                });
-                console.log(vueInstance.ohcResponses);
+    console.log('Success: ', body);
+});
+        // const url = 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/' + id
+        // var config = {
+        //     headers: {
+        //         'accept': 'application/fhir+json',
+        //         'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61'
+        //     }
+        // }
+        // axios.get(url, config)
+        // .then(function (response) {
+        //     var uni = _.uniqBy(response.Items, function(o) {
+        //         console.log('o.vitals ' + o.vitals);
+        //         return o.vitals;
+        //     });
+
+            // _.each(uni, function(row) {
+            //         var ohcObj = {};
+            //         // rowObj.question = _.replace(_.get(row, 'question.S'), /['"]+/g, '');
+            //         // rowObj.questionKey = _.replace(_.get(row, 'questionKey.S'), /['"]+/g, '');
+            //         // rowObj.answer = _.replace(_.get(row, 'response.S'), /['"]+/g, '');
+            //         //
+            //
+            //         vueInstance.ohcResponses.push(ohcObj);
+            //
+            //     });
+            //     console.log(vueInstance.ohcResponses);
 
     });
-    }
 }
 });
 app.updateDemographics();
