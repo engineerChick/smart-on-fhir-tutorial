@@ -28,7 +28,7 @@ var app = new Vue({
                 sessionTableName: "KRM_Survey",
                 surveyTableName: "surveyResponses"
             };
-            request('POST', 'https://cors-anywhere.herokuapp.com/https://ne5q2c9xz1.execute-api.us-east-1.amazonaws.com/Prod/usersurveyinfo', {
+            request('POST', 'https://ne5q2c9xz1.execute-api.us-east-1.amazonaws.com/Prod/usersurveyinfo', {
                 json: body
             }).getBody('utf8').then(JSON.parse).catch(function (err) {
                 console.log(err);
