@@ -73,7 +73,7 @@ var app = new Vue({
         }
         axios.get(url, config)
         .then(function (response) {
-            var uni = _.uniqBy(res.Items, function(o) {
+            var uni = _.uniqBy(response.Items, function(o) {
                 console.log('o.vitals ' + o.vitals);
                 return o.vitals;
             });
