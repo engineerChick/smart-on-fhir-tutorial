@@ -63,6 +63,7 @@ var app = new Vue({
     },
 
     ohcVitals: function() {
+        var vueInstance = this;
         const url = 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/' + id
         var config = {
             headers: {
