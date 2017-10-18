@@ -77,5 +77,6 @@ var app = new Vue({
             });
     });
     }
+}
 });
 app.updateDemographics();
