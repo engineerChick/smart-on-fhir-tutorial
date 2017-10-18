@@ -77,7 +77,8 @@ var app = new Vue({
 
 request(options, function(error, response, body) {
     if (error) return console.error('Failed: %s', error.message);
-
+    var patient = JSON.parse(response);
+    console.log('patient ' + patient);
     console.log('Success: ', body);
 });
         // const url = 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/' + id
