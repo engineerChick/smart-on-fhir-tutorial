@@ -66,46 +66,46 @@ var app = new Vue({
     ohcVitals: function() {
         var vueInstance = this;
 
-        var options = {
-            method: 'GET',
-            url: 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/1234',
-            headers: {
-                'accept': 'application/fhir+json',
-                'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61Y'
-            }
-        };
-
-        request(options, function(error, response, body) {
-            if (error) return console.error('Failed: %s', error.message);
-            // var patient = JSON.parse(response);
-            console.log('patient ' + response);
-            console.log('Success: ', body);
-        });
-        // const url = 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/' + id
-        // var config = {
+        // var options = {
+        //     method: 'GET',
+        //     url: 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/1234',
         //     headers: {
         //         'accept': 'application/fhir+json',
-        //         'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61'
+        //         'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61Y'
         //     }
-        // }
-        // axios.get(url, config)
-        // .then(function (response) {
-        //     var uni = _.uniqBy(response.Items, function(o) {
-        //         console.log('o.vitals ' + o.vitals);
-        //         return o.vitals;
-        //     });
+        // };
+        //
+        // request(options, function(error, response, body) {
+        //     if (error) return console.error('Failed: %s', error.message);
+        //     // var patient = JSON.parse(response);
+        //     console.log('patient ' + response);
+        //     console.log('Success: ', body);
+        // });
+        const url = 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/1234';
+        var config = {
+            headers: {
+                'accept': 'application/fhir+json',
+                'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61'
+            }
+        }
+        axios.get(url, config)
+        .then(function (response) {
+            var uni = _.uniqBy(response.Items, function(o) {
+                console.log('o.vitals ' + o.vitals);
+                return o.vitals;
+            });
 
-            // _.each(uni, function(row) {
-            //         var ohcObj = {};
-            //         // rowObj.question = _.replace(_.get(row, 'question.S'), /['"]+/g, '');
-            //         // rowObj.questionKey = _.replace(_.get(row, 'questionKey.S'), /['"]+/g, '');
-            //         // rowObj.answer = _.replace(_.get(row, 'response.S'), /['"]+/g, '');
-            //         //
-            //
-            //         vueInstance.ohcResponses.push(ohcObj);
-            //
-            //     });
-            //     console.log(vueInstance.ohcResponses);
+            _.each(uni, function(row) {
+                    var ohcObj = {};
+                    // rowObj.question = _.replace(_.get(row, 'question.S'), /['"]+/g, '');
+                    // rowObj.questionKey = _.replace(_.get(row, 'questionKey.S'), /['"]+/g, '');
+                    // rowObj.answer = _.replace(_.get(row, 'response.S'), /['"]+/g, '');
+                    //
+
+                    vueInstance.ohcResponses.push(ohcObj);
+
+                });
+                console.log(vueInstance.ohcResponses);
 
     }
 }
