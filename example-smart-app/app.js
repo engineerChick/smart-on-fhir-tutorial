@@ -74,24 +74,10 @@ var app = new Vue({
         }).getBody('utf8').then(JSON.parse).catch(function (err) {
             console.log(err);
         }).done(function (res) {
-            console.log(res);
+            console.log(res.name{0}.family);
 
             });
-        // const url = 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/1234';
-        // var config = {
-        //     headers: {
-        //         'accept': 'application/fhir+json',
-        //         'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61'
-        //     }
-        // };
-        // axios.get(url, config)
-        // .then(function(response){
-        //     console.log(response.birthdate);
-        //     console.log(JSON.stringify(response));
-        // })
-        // .catch(function(error){
-        //     console.log('ohc error', error);
-        // });
+
     }
 }
 });
