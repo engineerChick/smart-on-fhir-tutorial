@@ -86,7 +86,7 @@ var app = new Vue({
                     vueInstance.ohcResponses.push(ohcObj);
                 });
 
-
+                console.log('ohcObj ' + vueInstance.ohcResponses);
             // var results = res;
              var familyName = _.get(res, 'name[0].family');
             // var gender = _.get(results, 'gender');
@@ -96,7 +96,7 @@ var app = new Vue({
 
             });
 
-            console.log('ohcObj ' + vueInstance.ohcResponses);
+
 
     }
 }
