@@ -74,7 +74,9 @@ var app = new Vue({
         }).getBody('utf8').then(JSON.parse).catch(function (err) {
             console.log(err);
         }).done(function (res) {
-            console.log(res.name{0}.family);
+            var results = res;
+            var name = _.get(results, name[0].family);
+            console.log(name);
 
             });
 
