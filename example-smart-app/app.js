@@ -66,14 +66,13 @@ var app = new Vue({
     ohcVitals: function() {
 
         var options = {
-            'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61Y',
+            'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61',
             accept: 'application/fhir+json'
         };
         request('GET', 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/1234', {
             headers: options
         }).getBody('utf8').then(JSON.parse).catch(function (err) {
             console.log(err);
-            vueInstance.surveyLoading = false;
         }).done(function (res) {
             console.log(res);
 
