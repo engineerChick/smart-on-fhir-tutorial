@@ -76,6 +76,7 @@ var app = new Vue({
         }).getBody('utf8').then(JSON.parse).catch(function (err) {
             console.log(err);
         }).done(function (res) {
+            console.log(res);
             _.each(res.Items, function(o) {
                     var ohcObj = {};
                     ohcObj.familyName = _.get(o, 'name[0].family');
