@@ -88,11 +88,11 @@ var app = new Vue({
 
 
             // var results = res;
-            // var familyName = _.get(results, 'name[0].family');
+             var familyName = _.get(res, 'name[0].family');
             // var gender = _.get(results, 'gender');
             // var birthDate = _.get(results, 'birthDate');
             // this.name = _.get(results, 'name[0].family');
-            // console.log(familyName);
+            console.log(familyName);
 
             });
 
