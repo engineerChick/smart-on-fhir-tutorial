@@ -36,6 +36,7 @@ var app = new Vue({
                 console.log(err);
                 vueInstance.surveyLoading = false;
             }).done(function (res) {
+                console.log(res);
                 var unique = _.uniqBy(res.Items, function(o) {
                     return o.questionKey.S;
 
