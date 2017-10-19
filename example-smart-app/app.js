@@ -65,7 +65,7 @@ var app = new Vue({
     },
 
     ohcVitals: function() {
-
+        var vueInstance = this;
 
         var options = {
             'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61',
@@ -84,6 +84,12 @@ var app = new Vue({
             console.log(familyName);
 
             });
+
+            _.each(res.Items, function(o) {
+                    var oObj = {};
+                    vueInstance.ohcResponses.push(oObj);
+                });
+                console.log('oObj ' + vueInstance.ohcResponses);
 
     }
 }
