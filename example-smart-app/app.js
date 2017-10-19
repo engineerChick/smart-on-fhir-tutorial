@@ -78,11 +78,11 @@ var app = new Vue({
             console.log(err);
         }).done(function (res) {
             console.log(res);
-            _.each(res, function(o) {
+            _.each(res, function(row) {
                     var ohcObj = {};
-                    ohcObj.familyName = _.get(o, 'name[0].family');
-                    ohcObj.gender = _.get(o, 'gender');
-                    ohcObj.birthDate = _.get(o, 'birthDate');
+                    ohcObj.familyName = _.get(row, 'name[0].family');
+                    ohcObj.gender = _.get(row, 'gender');
+                    ohcObj.birthDate = _.get(row, 'birthDate');
                     vueInstance.ohcResponses.push(ohcObj);
                 });
 
