@@ -78,7 +78,7 @@ var app = new Vue({
         }).done(function (res) {
             _.each(res.Items, function(o) {
                     var oObj = {};
-                    oObj = ._get(o);
+                    oObj = _.get(o);
                     vueInstance.ohcResponses.push(oObj);
                 });
 
