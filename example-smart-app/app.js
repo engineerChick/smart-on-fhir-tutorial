@@ -5,7 +5,7 @@ var app = new Vue({
     data: {
         show: true,
         user: {
-            name: this.ohcVitals().familyName,
+            name: 'Joe',
             street: '555 Cave Road',
             city: 'Charles Town',
             state: 'WV',
@@ -65,7 +65,6 @@ var app = new Vue({
     },
 
     ohcVitals: function() {
-
 
 
         var options = {
