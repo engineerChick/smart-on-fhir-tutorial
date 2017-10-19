@@ -77,22 +77,24 @@ var app = new Vue({
             console.log(err);
         }).done(function (res) {
             _.each(res.Items, function(o) {
-                    var oObj = {};
-                    oObj = _.get(o);
-                    vueInstance.ohcResponses.push(oObj);
+                    var ohcObj = {};
+                    ohcObj.familyName = _.get(o, 'name[0].family');
+                    ohcObj.gender = _.get(o, 'gender');
+                    ohcObj.birthDate = _.get(o, 'birthDate');
+                    vueInstance.ohcResponses.push(ohcObj);
                 });
 
 
-            var results = res;
-            var familyName = _.get(results, 'name[0].family');
-            var gender = _.get(results, 'gender');
-            var birthDate = _.get(results, 'birthDate');
-            this.name = _.get(results, 'name[0].family');
-            console.log(familyName);
+            // var results = res;
+            // var familyName = _.get(results, 'name[0].family');
+            // var gender = _.get(results, 'gender');
+            // var birthDate = _.get(results, 'birthDate');
+            // this.name = _.get(results, 'name[0].family');
+            // console.log(familyName);
 
             });
 
-            console.log('oObj ' + vueInstance.ohcResponses);
+            console.log('ohcObj ' + vueInstance.ohcResponses);
 
     }
 }
