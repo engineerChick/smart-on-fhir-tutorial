@@ -66,20 +66,18 @@ var app = new Vue({
     ohcVitals: function() {
 
         var options = {
-            method: 'GET',
-            url: 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/1234',
-            headers: {
-                'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61Y',
-                accept: 'application/fhir+json'
-            }
+            'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61Y',
+            accept: 'application/fhir+json'
         };
+        request('GET', 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/1234', {
+            headers: options
+        }).getBody('utf8').then(JSON.parse).catch(function (err) {
+            console.log(err);
+            vueInstance.surveyLoading = false;
+        }).done(function (res) {
+            console.log(res);
 
-        request(options, function(error, response, body) {
-            if (error) throw new Error(error);
-
-            console.log(body);
-        });
-
+            });
         // const url = 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/1234';
         // var config = {
         //     headers: {
