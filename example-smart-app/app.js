@@ -75,7 +75,7 @@ var app = new Vue({
             console.log(err);
         }).done(function (res) {
             var results = res;
-            var name = _.get(results, name[0].family);
+            var name = _.get(results, 'name[0].family');
             console.log(name);
 
             });
