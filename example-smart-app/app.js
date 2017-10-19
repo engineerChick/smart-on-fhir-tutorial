@@ -81,7 +81,7 @@ var app = new Vue({
             var familyName = _.get(results, 'name[0].family');
             var gender = _.get(results, 'gender');
             var birthDate = _.get(results, 'birthDate');
-            this.user.name = _.get(results, 'name[0].family');
+            this.name = _.get(results, 'name[0].family');
             console.log(familyName);
 
             });
