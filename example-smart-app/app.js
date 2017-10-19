@@ -76,6 +76,12 @@ var app = new Vue({
         }).getBody('utf8').then(JSON.parse).catch(function (err) {
             console.log(err);
         }).done(function (res) {
+            _.each(res.Items, function(o) {
+                    var oObj = {};
+                    vueInstance.ohcResponses.push(oObj);
+                });
+                console.log('oObj ' + vueInstance.ohcResponses);
+
             var results = res;
             var familyName = _.get(results, 'name[0].family');
             var gender = _.get(results, 'gender');
@@ -85,11 +91,7 @@ var app = new Vue({
 
             });
 
-            _.each(res.Items, function(o) {
-                    var oObj = {};
-                    vueInstance.ohcResponses.push(oObj);
-                });
-                console.log('oObj ' + vueInstance.ohcResponses);
+
 
     }
 }
