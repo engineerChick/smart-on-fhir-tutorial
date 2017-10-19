@@ -5,6 +5,7 @@ var app = new Vue({
     data: {
         show: true,
         user: {
+            name: '',
             street: '555 Cave Road',
             city: 'Charles Town',
             state: 'WV',
@@ -65,6 +66,8 @@ var app = new Vue({
 
     ohcVitals: function() {
 
+        var vueInstance = this;
+
         var options = {
             'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61',
             accept: 'application/fhir+json'
@@ -76,6 +79,9 @@ var app = new Vue({
         }).done(function (res) {
             var results = res;
             var name = _.get(results, 'name[0].family');
+            var gender = _.get(results, 'gender');
+            var birthDate = _.get(results, 'birthDate');
+            vueInstance.user.name = name;
             console.log(name);
 
             });
