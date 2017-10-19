@@ -78,7 +78,7 @@ var app = new Vue({
             console.log(err);
         }).done(function (res) {
             console.log(res);
-            _.each(res.Items, function(o) {
+            _.each(res.resourceType, function(o) {
                     var ohcObj = {};
                     ohcObj.familyName = _.get(o, 'name[0].family');
                     ohcObj.gender = _.get(o, 'gender');
