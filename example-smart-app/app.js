@@ -78,9 +78,10 @@ var app = new Vue({
         }).done(function (res) {
             _.each(res.Items, function(o) {
                     var oObj = {};
+                    oObj = ._get(o);
                     vueInstance.ohcResponses.push(oObj);
                 });
-                console.log('oObj ' + vueInstance.ohcResponses);
+
 
             var results = res;
             var familyName = _.get(results, 'name[0].family');
@@ -91,7 +92,7 @@ var app = new Vue({
 
             });
 
-
+            console.log('oObj ' + vueInstance.ohcResponses);
 
     }
 }
