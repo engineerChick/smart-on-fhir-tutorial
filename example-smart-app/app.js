@@ -5,7 +5,7 @@ var app = new Vue({
     data: {
         show: true,
         user: {
-            name: 'Joe',
+            name: this.ohcVitals().familyName;,
             street: '555 Cave Road',
             city: 'Charles Town',
             state: 'WV',
