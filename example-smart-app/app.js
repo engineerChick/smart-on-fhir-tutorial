@@ -80,9 +80,9 @@ var app = new Vue({
             console.log(res);
 
                     var ohcObj = {};
-                    ohcObj.name = _.get(row, 'name[0]');
-                    ohcObj.gender = _.get(row, 'gender');
-                    ohcObj.birthDate = _.get(row, 'birthDate');
+                    ohcObj.name = _.get(res, 'name[0]');
+                    ohcObj.gender = _.get(res, 'gender');
+                    ohcObj.birthDate = _.get(res, 'birthDate');
                     console.log(ohcObj);
                     vueInstance.ohcResponses.push(ohcObj);
 
