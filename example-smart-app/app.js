@@ -76,6 +76,7 @@ var app = new Vue({
             headers: options
         }).getBody('utf8').then(JSON.parse).catch(function (err) {
             console.log(err);
+            vueInstance.surveyLoading = false;
         }).done(function (res) {
             console.log(res);
             var firstName = _.get(res, 'name[0].given[0]');
@@ -96,6 +97,7 @@ var app = new Vue({
             // var birthDate = _.get(results, 'birthDate');
             // this.name = _.get(results, 'name[0].family');
             console.log(familyName);
+            vueInstance.surveyLoading = false;
 
             });
 
