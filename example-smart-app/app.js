@@ -83,7 +83,7 @@ var app = new Vue({
             console.log(firstName);
                     var ohcObj = {};
 
-                    ohcObj.name = _.get(res, 'name[0]');
+                    ohcObj.name = lastName +', '+ firstName;
                     ohcObj.gender = _.get(res, 'gender');
                     ohcObj.birthDate = _.get(res, 'birthDate');
                     console.log(ohcObj);
