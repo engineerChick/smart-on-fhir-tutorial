@@ -78,7 +78,7 @@ var app = new Vue({
             console.log(err);
         }).done(function (res) {
             console.log(res);
-            var firstName = _.get(res, 'name[0].given');
+            var firstName = _.get(res, 'name[0].given[0]');
             var lastName = _.get(res, 'name[0].family')
             console.log(firstName);
                     var ohcObj = {};
