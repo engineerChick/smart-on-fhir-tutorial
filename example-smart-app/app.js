@@ -124,12 +124,10 @@ var app = new Vue({
                     vueInstance.ohcVitals.push(rowObj);
                 }
 
-            _.sortBy(vueInstance.ohcVitals, [ function(o) {
-                var tmp = moment.unix(o.effectiveDateTime);
-                var day = tmp.format('MM-DD-YYYY hh:mm a');
-
-                o.effectiveDateTime = tmp.fromNow();
-                return o.effectiveDateTime;}]);
+            vueInstance.ohcVitals = _.sortBy(vueInstance.ohcVitals, [ function(o) {
+                return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
+                }]
+            );
 
             });
 
