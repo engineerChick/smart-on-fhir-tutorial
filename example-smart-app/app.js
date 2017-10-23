@@ -119,7 +119,8 @@ var app = new Vue({
                     var rowObj = {};
                     // rowObj.response = _.get(row, 'response');
                     //rowObj.resource = _.get(row, 'resource.code.coding');
-                    if(res.entry.resource.code.coding[0].display == "Diastolic"){
+                    var display = _.get(row, 'resource.code.coding[0].display');
+                    if(display == "Diastolic"){
                     rowObj.resource = _.get(row, 'resource');
                 }
                     // rowObj.code = _.get(row, 'code.coding[0].code');
