@@ -86,12 +86,21 @@
                 <tr>
                     <th colspan="3" class="tableHeading">VITALS</th>
                 </tr>
-                <tr class="table table-secondary">
+                <tr v-if="ohcVitals.length > 0" class="table table-secondary">
                     <th class="tableSubHeading">Type</th>
                     <th class="tableSubHeading">Result</th>
                     <th class="tableSubHeading">Last</th>
                 </tr>
-                <tr class="tableInfomation">
+                <tr v-else>
+                    <th v-if="ohcLoading" colspan="3" class="tableSubheading">Loading...</th>
+                    <th v-else colspan="3" class="tableSubheading">No survey results</th>
+                </tr>
+                <tr v-for="response in ohcVitals" class="tableInfomation">
+                    <td>{{response.resource.display}}</td>
+                    <td>{{response.resource.valueString}}</td>
+                    <td></td>
+                </tr>
+                <!-- <tr class="tableInfomation">
                     <td>BPS</td>
                     <td id="systolicbp"></td>
                     <td></td>
@@ -145,7 +154,7 @@
                     <td>Circum/Girth</td>
                     <td></td>
                     <td></td>
-                </tr>
+                </tr> -->
             </table>
         </div>
 
