@@ -123,9 +123,10 @@ var app = new Vue({
                     console.log(display);
                     if(display == "Diastolic"){
                     rowObj.resource = _.get(row, 'resource');
+                    vueInstance.ohcVitals.push(rowObj);
                 }
                     // rowObj.code = _.get(row, 'code.coding[0].code');
-                    vueInstance.ohcVitals.push(rowObj);
+
 
 
                 });
