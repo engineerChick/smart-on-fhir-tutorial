@@ -118,12 +118,12 @@ var app = new Vue({
             _.each(res.entry, function(row) {
                 var rowObj = {};
                 var display = _.get(row, 'resource.code.coding[0].display');
-                var tmp = _.get(row, 'resource.effectiveDateTime');
+                var tmp = moment(_.get(row, 'resource.effectiveDateTime'));
                 var day = tmp.format('MM-DD-YYYY hh:mm a');
 
                 rowObj.lastDay = tmp.fromNow();
 
-                
+
                 if (display == "Diastolic") {
                     rowObj.resource = _.get(row, 'resource');
                     vueInstance.ohcVitals.push(rowObj);
