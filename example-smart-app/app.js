@@ -124,7 +124,7 @@ var app = new Vue({
                     vueInstance.ohcVitals.push(rowObj);
                 }
 
-            var diastolic = _.sortBy(vueInstance.ohcVitals, [ function(o) {
+            _.sortBy(vueInstance.ohcVitals, [ function(o) {
                 var tmp = moment.unix(o.effectiveDateTime);
                 var day = tmp.format('MM-DD-YYYY hh:mm a');
 
@@ -132,7 +132,7 @@ var app = new Vue({
                 return o.effectiveDateTime;}]);
 
             });
-            console.log(diastolic);
+
 
             console.log(vueInstance.ohcVitals);
             vueInstance.surveyLoading = false;
