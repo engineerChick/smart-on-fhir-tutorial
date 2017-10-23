@@ -118,11 +118,11 @@ var app = new Vue({
             _.each(res.entry, function(row) {
                     var rowObj = {};
                     // rowObj.response = _.get(row, 'response');
-                    // rowObj.questionKey = _.get(row, 'questionKey.S');
-                    rowObj.resource = _.get(row, 'resource.code.coding');
+                    //rowObj.resource = _.get(row, 'resource.code.coding');
+                    rowObj.resourc = _.get(row, 'resource.code.coding[0].display'= "Diastolic");
                     // rowObj.code = _.get(row, 'code.coding[0].code');
                     vueInstance.ohcVitals.push(rowObj);
-                    
+
 
                 });
                 console.log(vueInstance.ohcVitals);
