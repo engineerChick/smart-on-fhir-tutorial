@@ -125,9 +125,6 @@ var app = new Vue({
                 }
 
             vueInstance.ohcVitals = _.sortBy(vueInstance.ohcVitals, [ function(o) {
-                var tmp = moment(o.effectiveDateTime).format('YYYY-MM-DD');
-                rowObj.lastDay = tmp.fromNow();
-                vueInstance.ohcVitals.push(rowObj);
                 return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
                 }]
             );
