@@ -96,7 +96,7 @@
                     <th v-else colspan="3" class="tableSubheading">No survey results</th>
                 </tr>
                 <tr v-for="response in ohcVitals" class="tableInfomation">
-                    <td>{{response.resource.display}}</td>
+                    <td>{{response.resource.code.coding[0].display}}</td>
                     <td>{{response.resource.valueString}}</td>
                     <td></td>
                 </tr>
