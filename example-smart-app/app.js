@@ -18,7 +18,9 @@ var app = new Vue({
         },
         surveyResponses: [],
         ohcResponses: [],
-        surveyLoading: true
+        ohcVitals: [],
+        surveyLoading: true,
+        ohcLoading: true
     },
 
     methods: {
@@ -65,7 +67,7 @@ var app = new Vue({
         });
     },
 
-    ohcVitals: function() {
+    ohcPatient: function() {
         var vueInstance = this;
 
         var options = {
@@ -76,35 +78,62 @@ var app = new Vue({
             headers: options
         }).getBody('utf8').then(JSON.parse).catch(function (err) {
             console.log(err);
-            vueInstance.surveyLoading = false;
+            vueInstance.ohcLoading = false;
         }).done(function (res) {
             console.log(res);
             var firstName = _.get(res, 'name[0].given[0]');
             var lastName = _.get(res, 'name[0].family')
             console.log(firstName);
-                    var ohcObj = {};
+            var ohcObj = {};
+            ohcObj.name = lastName +', '+ firstName;
+            ohcObj.gender = _.get(res, 'gender');
+            ohcObj.birthDate = _.get(res, 'birthDate');
+            console.log(ohcObj);
+            vueInstance.ohcResponses.push(ohcObj);
+            console.log(vueInstance.ohcResponses);
+            vueInstance.ohcLoading = false;
 
-                    ohcObj.name = lastName +', '+ firstName;
-                    ohcObj.gender = _.get(res, 'gender');
-                    ohcObj.birthDate = _.get(res, 'birthDate');
-                    console.log(ohcObj);
-                    vueInstance.ohcResponses.push(ohcObj);
+        });
 
-                console.log(vueInstance.ohcResponses);
-            // var results = res;
-             var familyName = _.get(res, 'name[0].family');
-            // var gender = _.get(results, 'gender');
-            // var birthDate = _.get(results, 'birthDate');
-            // this.name = _.get(results, 'name[0].family');
-            console.log(familyName);
+    },
+
+    ohcObservation: function() {
+        var vueInstance = this;
+
+        var options = {
+            'x-ibm-client-id': 'ea1bde71-201f-4578-8afa-195f17a3fb61',
+            accept: 'application/fhir+json'
+        };
+        request('GET', 'https://api.eu.apiconnect.ibmcloud.com/csc-healthcare-uk-csc-api-connect/dhp/Patient/1234/Observation', {
+            headers: options
+        }).getBody('utf8').then(JSON.parse).catch(function (err) {
+            console.log(err);
+            vueInstance.surveyLoading = false;
+        }).done(function (res) {
+            console.log(res);
+            var ohcObj = {};
+            // vueInstance.ohcVitals.push(ohcObj);
+            // console.log(vueInstance.ohcVitals);
+
+            _.each(res.entry, function(row) {
+                    var rowObj = {};
+                    // rowObj.response = _.get(row, 'response');
+                    // rowObj.questionKey = _.get(row, 'questionKey.S');
+                    // rowObj.answer = _.get(row, 'response.S');
+                    rowObj.code = _.get(row, 'code.coding[0].code');
+
+                    if (rowObj.code.coding[0].code !== null) {
+                        vueInstance.ohcVitals.push(rowObj);
+                    }
+
+                });
+                console.log(vueInstance.ohcVitals);
             vueInstance.surveyLoading = false;
 
-            });
-
-
-
+        });
     }
 }
 });
 app.updateDemographics();
-app.ohcVitals();
+app.ohcPatient();
+app.ohcObservation();
