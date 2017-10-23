@@ -119,13 +119,10 @@ var app = new Vue({
                     var rowObj = {};
                     // rowObj.response = _.get(row, 'response');
                     // rowObj.questionKey = _.get(row, 'questionKey.S');
-                    // rowObj.answer = _.get(row, 'response.S');
-
-
-                    if (rowObj.code.coding[0].code !== null) {
-                        rowObj.code = _.get(row, 'code.coding[0].code');
-                        vueInstance.ohcVitals.push(rowObj);
-                    }
+                    rowObj.resource = _.get(row, 'resource.code.coding');
+                    // rowObj.code = _.get(row, 'code.coding[0].code');
+                    vueInstance.ohcVitals.push(rowObj);
+                    
 
                 });
                 console.log(vueInstance.ohcVitals);
