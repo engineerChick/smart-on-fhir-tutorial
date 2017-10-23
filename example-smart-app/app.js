@@ -119,15 +119,20 @@ var app = new Vue({
                 var rowObj = {};
                 var display = _.get(row, 'resource.code.coding[0].display');
 
-                if(display == "Diastolic"){
+                if (display == "Diastolic") {
                     rowObj.resource = _.get(row, 'resource');
                     vueInstance.ohcVitals.push(rowObj);
                 }
 
-            _.sortBy(vueInstance.ohcVitals, [ function(o) { return o.effectiveDateTime;}]);    
+            var diastolic = _.sortBy(vueInstance.ohcVitals, [ function(o) {
+                var tmp = moment.unix(o.effectiveDateTime);
+                var day = tmp.format('MM-DD-YYYY hh:mm a');
+
+                o.effectiveDateTime = tmp.fromNow();
+                return o.effectiveDateTime;}]);
 
             });
-
+            console.log(diastolic);
 
             console.log(vueInstance.ohcVitals);
             vueInstance.surveyLoading = false;
