@@ -120,6 +120,7 @@ var app = new Vue({
                     // rowObj.response = _.get(row, 'response');
                     //rowObj.resource = _.get(row, 'resource.code.coding');
                     var display = _.get(row, 'resource.code.coding[0].display');
+                    console.log(display);
                     if(display == "Diastolic"){
                     rowObj.resource = _.get(row, 'resource');
                 }
