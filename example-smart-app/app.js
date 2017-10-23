@@ -116,21 +116,20 @@ var app = new Vue({
             // console.log(vueInstance.ohcVitals);
 
             _.each(res.entry, function(row) {
-                    var rowObj = {};
-                    // rowObj.response = _.get(row, 'response');
-                    //rowObj.resource = _.get(row, 'resource.code.coding');
-                    var display = _.get(row, 'resource.code.coding[0].display');
-                    console.log(display);
-                    if(display == "Diastolic"){
+                var rowObj = {};
+                var display = _.get(row, 'resource.code.coding[0].display');
+
+                if(display == "Diastolic"){
                     rowObj.resource = _.get(row, 'resource');
                     vueInstance.ohcVitals.push(rowObj);
                 }
-                    // rowObj.code = _.get(row, 'code.coding[0].code');
+
+            _.sortBy(vueInstance.ohcVitals, [ function(o) { return o.effectiveDateTime;}]);    
+
+            });
 
 
-
-                });
-                console.log(vueInstance.ohcVitals);
+            console.log(vueInstance.ohcVitals);
             vueInstance.surveyLoading = false;
 
         });
