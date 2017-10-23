@@ -120,9 +120,10 @@ var app = new Vue({
                     // rowObj.response = _.get(row, 'response');
                     // rowObj.questionKey = _.get(row, 'questionKey.S');
                     // rowObj.answer = _.get(row, 'response.S');
-                    rowObj.code = _.get(row, 'code.coding[0].code');
+
 
                     if (rowObj.code.coding[0].code !== null) {
+                        rowObj.code = _.get(row, 'code.coding[0].code');
                         vueInstance.ohcVitals.push(rowObj);
                     }
 
