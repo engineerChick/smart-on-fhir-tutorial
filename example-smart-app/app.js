@@ -119,7 +119,9 @@ var app = new Vue({
                     var rowObj = {};
                     // rowObj.response = _.get(row, 'response');
                     //rowObj.resource = _.get(row, 'resource.code.coding');
-                    rowObj.resourc = _.get(row, 'resource.code.coding[0].display'= "Diastolic");
+                    if(res.entry.resource.code.coding[0].display == Diastolic){
+                    rowObj.resource = _.get(row, 'resource');
+                }
                     // rowObj.code = _.get(row, 'code.coding[0].code');
                     vueInstance.ohcVitals.push(rowObj);
 
