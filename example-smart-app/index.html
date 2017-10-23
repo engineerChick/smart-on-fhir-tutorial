@@ -98,7 +98,7 @@
                 <tr v-for="response in ohcVitals" class="tableInfomation">
                     <td>{{response.resource.code.coding[0].display}}</td>
                     <td>{{response.resource.valueString}}</td>
-                    <td>{{response.resource.effectiveDateTime}}</td>
+                    <td>{{response.lastDay}}</td>
                 </tr>
                 <!-- <tr class="tableInfomation">
                     <td>BPS</td>
