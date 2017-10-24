@@ -126,7 +126,7 @@ var app = new Vue({
 
                 if (display == "Diastolic") {
                     rowObj.resource = _.get(row, 'resource');
-                    // vueInstance.ohcVitals.push(rowObj);
+                    vueInstance.ohcVitals.push(rowObj);
                 }
 
                 // if (display == "Systolic") {
@@ -144,7 +144,7 @@ var app = new Vue({
                 //     // vueInstance.ohcVitals.push(rowObj);
                 // }
 
-                vueInstance.ohcVitals.push(rowObj);
+                //vueInstance.ohcVitals.push(rowObj);
 
             //     vueInstance.ohcVitals = _.sortBy(vueInstance.ohcVitals, [ function(o) {
             //     return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
