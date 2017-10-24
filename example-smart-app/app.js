@@ -18,7 +18,7 @@ var app = new Vue({
         },
         surveyResponses: [],
         ohcResponses: [],
-        ohcVitals: [],
+        ohcVitals: {},
         surveyLoading: true,
         ohcLoading: true
     },
@@ -116,17 +116,30 @@ var app = new Vue({
             let results = {};
 
             _.each(searchVital, function(vital) {
-                (results[vital] = results[vital] || []).push(_.filter(res.entry, function(o)
-                { return _.includes(_.get(o, 'resource.id', null), vital); }));
-
-                results[vital] = _.sortBy(results[vital], [ function(o) {
-                    return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
-                    }]
-                );
-                vueInstance.surveyLoading = false;
+                (results[vital] = results[vital] || []).push(_.filter(res.entry, function(o) {
+                    return _.includes(_.get(o, 'resource.id', null), vital);
+                }));
+                results[vital] = [].concat.apply([], results[vital]);
+                results[vital] = _.orderBy(results[vital], 'resource.effectiveDateTime', 'desc');
+                results[vital] = _.map(results[vital], function(o) {
+                    o.resource.effectiveDateTime = new moment(o.resource.effectiveDateTime).format('YYYY-MM-DD');
+                    return o;
+                    });
             });
+
+            // _.each(searchVital, function(vital) {
+            //     (results[vital] = results[vital] || []).push(_.filter(res.entry, function(o)
+            //     { return _.includes(_.get(o, 'resource.id', null), vital); }));
+            //
+            //     results[vital] = _.sortBy(results[vital], [ function(o) {
+            //         return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
+            //         }]
+            //     );
+            //     vueInstance.surveyLoading = false;
+            // });
+            vueInstance.surveyLoading = false;
             console.log(results);
-            vueInstance.ohcVitals.push(results);
+            vueInstance.ohcVitals = results;
             console.log(vueInstance.ohcVitals);
 
         });
