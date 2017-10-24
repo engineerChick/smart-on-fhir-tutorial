@@ -142,10 +142,10 @@ var app = new Vue({
                 (vueInstance.ohcVitals[vital] = vueInstance.ohcVitals[vital] || []).push(_.filter(res.entry, function(o)
                 { return _.includes(_.get(o, 'resource.id', null), vital); }));
 
-                // results = _.sortBy(results, [ function(o) {
-                //     return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
-                //     }]
-                // );
+                vueInstance.ohcVitals = _.sortBy(vueInstance.ohcVitals, [ function(o) {
+                    return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
+                    }]
+                );
                 vueInstance.surveyLoading = false;
             });
             // console.log(results);
