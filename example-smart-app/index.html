@@ -95,18 +95,18 @@
                     <th v-if="ohcLoading" colspan="3" class="tableSubheading">Loading...</th>
                     <th v-else colspan="3" class="tableSubheading">No survey results</th>
                 </tr>
-                <tr v-for="response in ohcVitals" class="tableInfomation">
+                <!-- <tr v-for="response in ohcVitals" class="tableInfomation">
                     <td>{{response.resource.code.coding[0].display}}</td>
                     <td>{{response.resource.valueString}}</td>
                     <td>{{response.lastDay}}</td>
-                </tr>
+                </tr> -->
                 <!-- <tr class="tableInfomation">
                     <td>BPS</td>
                     <td id="systolicbp"></td>
                     <td></td>
                 </tr>-->
                 <tr class="tableInfomation">
-                    <td>{{ohcVitals.diastolic[0].resource.code.coding[0].display}}</td>
+                    <!-- <td>{{ohcVitals.diastolic[0].resource.code.coding[0].display}}</td> -->
                     <td>{{ohcVitals.diastolic[0].resource.valueString}}</td>
                     <td>{{ohcVitals.diastolic[0].resource.effectiveDateTime}}</td>
                 </tr>
