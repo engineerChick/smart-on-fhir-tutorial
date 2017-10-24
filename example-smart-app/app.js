@@ -129,20 +129,20 @@ var app = new Vue({
                     // vueInstance.ohcVitals.push(rowObj);
                 }
 
-                if (display == "Systolic") {
-                    rowObj.resource = _.get(row, 'resource');
-                    // vueInstance.ohcVitals.push(rowObj);
-                }
-
-                if (display == "weightKG") {
-                    rowObj.resource = _.get(row, 'resource');
-                    // vueInstance.ohcVitals.push(rowObj);
-                }
-
-                if (display == "Resting Heartrate") {
-                    rowObj.resource = _.get(row, 'resource');
-                    // vueInstance.ohcVitals.push(rowObj);
-                }
+                // if (display == "Systolic") {
+                //     rowObj.resource = _.get(row, 'resource');
+                //     // vueInstance.ohcVitals.push(rowObj);
+                // }
+                //
+                // if (display == "weightKG") {
+                //     rowObj.resource = _.get(row, 'resource');
+                //     // vueInstance.ohcVitals.push(rowObj);
+                // }
+                //
+                // if (display == "Resting Heartrate") {
+                //     rowObj.resource = _.get(row, 'resource');
+                //     // vueInstance.ohcVitals.push(rowObj);
+                // }
 
                 vueInstance.ohcVitals.push(rowObj);
 
