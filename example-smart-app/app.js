@@ -146,10 +146,10 @@ var app = new Vue({
 
                 vueInstance.ohcVitals.push(rowObj);
 
-                vueInstance.ohcVitals = _.sortBy(vueInstance.ohcVitals, [ function(o) {
-                return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
-                }]
-            );
+            //     vueInstance.ohcVitals = _.sortBy(vueInstance.ohcVitals, [ function(o) {
+            //     return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
+            //     }]
+            // );
 
             // vueInstance.ohcVitals = _.uniqBy(vueInstance.ohcVitals, function(o) {
             //     return o.code.coding[0].display;
