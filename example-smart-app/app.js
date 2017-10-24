@@ -149,10 +149,11 @@ var app = new Vue({
                 vueInstance.surveyLoading = false;
             });
             console.log(results);
+            vueInstance.ohcVitals.push(results);
+            conosle.log(vueInstance.ohcVitls);
 
         });
-        vueInstance.ohcVitals.push(results);
-        conosle.log(vueInstance.ohcVitls);
+
     }
 }
 });
