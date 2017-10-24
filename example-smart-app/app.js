@@ -112,29 +112,6 @@ var app = new Vue({
         }).done(function (res) {
             console.log(res);
 
-            // _.each(res.entry, function(row) {
-            //     var rowObj = {};
-            //     var display = _.get(row, 'resource.code.coding[0].display');
-            //     var tmp = moment(_.get(row, 'resource.effectiveDateTime'));
-            //     var day = tmp.format('MM-DD-YYYY hh:mm a');
-            //
-            //     rowObj.lastDay = tmp.fromNow();
-            //
-            //
-            //     // if (display == "Diastolic") {
-            //     //     rowObj.resource = _.get(row, 'resource');
-            //     //     vueInstance.ohcVitals.push(rowObj);
-            //     // }
-            //
-            //
-            // //     vueInstance.ohcVitals = _.sortBy(vueInstance.ohcVitals, [ function(o) {
-            // //     return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
-            // //     }]
-            // // );
-            //
-            // vueInstance.surveyLoading = false;
-            //
-            // });
             let searchVital = ['systolic', 'diastolic', 'weightKG', 'restingHeartrate'];
             let results = {};
 
