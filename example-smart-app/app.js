@@ -124,16 +124,6 @@ var app = new Vue({
                 rowObj.lastDay = tmp.fromNow();
 
 
-                let searchVital = ['systolic', 'diastolic', 'weightKG', 'resting heartrate'];
-                let results = {};
-
-                _.each(searchVital, function(vital) {
-                    (results[vital] = results[vital] || []).push(_.filter(res.entry, function(o)
-                    { return _.includes(_.get(o, 'resource.id', null), vital); }));
-                    vueInstance.ohcVitals.push(results);
-                });
-
-
                 // if (display == "Diastolic") {
                 //     rowObj.resource = _.get(row, 'resource');
                 //     vueInstance.ohcVitals.push(rowObj);
@@ -145,9 +135,17 @@ var app = new Vue({
             //     }]
             // );
 
-
             vueInstance.surveyLoading = false;
 
+            });
+            let searchVital = ['systolic', 'diastolic', 'weightKG', 'resting heartrate'];
+            let results = {};
+
+            _.each(searchVital, function(vital) {
+                (results[vital] = results[vital] || []).push(_.filter(res.entry, function(o)
+                { return _.includes(_.get(o, 'resource.id', null), vital); }));
+                vueInstance.ohcVitals.push(results);
+                vueInstance.surveyLoading = false;
             });
             console.log(vueInstance.ohcVitals);
 
