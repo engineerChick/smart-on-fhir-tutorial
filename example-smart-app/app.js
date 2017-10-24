@@ -139,17 +139,17 @@ var app = new Vue({
             let results = {};
 
             _.each(searchVital, function(vital) {
-                (vueInstance.ohcVitals[vital] = vueInstance.ohcVitals[vital] || []).push(_.filter(res.entry, function(o)
+                (results[vital] = results[vital] || []).push(_.filter(res.entry, function(o)
                 { return _.includes(_.get(o, 'resource.id', null), vital); }));
 
-                vueInstance.ohcVitals = _.sortBy(vueInstance.ohcVitals, [ function(o) {
-                    return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
-                    }]
-                );
+                // results = _.sortBy(results, [ function(o) {
+                //     return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
+                //     }]
+                // );
                 vueInstance.surveyLoading = false;
             });
-            // console.log(results);
-            // vueInstance.ohcVitals.push(results);
+            console.log(results);
+            vueInstance.ohcVitals.push(results);
             console.log(vueInstance.ohcVitals);
 
         });
