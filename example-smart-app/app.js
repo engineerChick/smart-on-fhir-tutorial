@@ -142,7 +142,7 @@ var app = new Vue({
                 (results[vital] = results[vital] || []).push(_.filter(res.entry, function(o)
                 { return _.includes(_.get(o, 'resource.id', null), vital); }));
 
-                results = _.sortBy(results, [ function(o) {
+                results[vital] = _.sortBy(results[vital], [ function(o) {
                     return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
                     }]
                 );
