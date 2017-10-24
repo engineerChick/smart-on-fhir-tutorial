@@ -104,13 +104,13 @@
                     <td>BPS</td>
                     <td id="systolicbp"></td>
                     <td></td>
-                </tr>
+                </tr>-->
                 <tr class="tableInfomation">
-                    <td>BPD</td>
-                    <td>{{ohcVitals[0].resource.valueString}}</td>
-                    <td>{{ohcVitals[1].resource.valueString}}</td>
+                    <td>{{ohcVitals.diastolic[0].resource.code.coding[0].display}}</td>
+                    <td>{{ohcVitals.diastolic[0].resource.valueString}}</td>
+                    <td>{{ohcVitals.diastolic[0].resource.effectiveDateTime}}</td>
                 </tr>
-                <tr class="tableInfomation">
+                <!-- <tr class="tableInfomation">
                     <td>Pulse</td>
                     <td></td>
                     <td></td>
