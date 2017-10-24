@@ -145,10 +145,11 @@ var app = new Vue({
             //     }]
             // );
 
-            console.log(vueInstance.ohcVitals);
+
             vueInstance.surveyLoading = false;
 
             });
+            console.log(vueInstance.ohcVitals);
 
         });
     }
