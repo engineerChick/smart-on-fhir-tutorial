@@ -124,44 +124,31 @@ var app = new Vue({
                 rowObj.lastDay = tmp.fromNow();
 
 
-                if (display == "Diastolic") {
-                    rowObj.resource = _.get(row, 'resource');
-                    vueInstance.ohcVitals.push(rowObj);
-                }
+                let searchVital = ['systolic', 'diastolic', 'weightKG', 'resting heartrate'];
+                let results = {};
 
-                // if (display == "Systolic") {
+                _.each(searchVital, function(vital) {
+                    (results[vital] = results[vital] || []).push(_.filter(res.entry, function(o) 
+                    { return _.includes(_.get(o, 'resource.id', null), vital); }));
+                });
+
+                vueInstance.ohcVitals.push(results);
+                // if (display == "Diastolic") {
                 //     rowObj.resource = _.get(row, 'resource');
-                //     // vueInstance.ohcVitals.push(rowObj);
-                // }
-                //
-                // if (display == "weightKG") {
-                //     rowObj.resource = _.get(row, 'resource');
-                //     // vueInstance.ohcVitals.push(rowObj);
-                // }
-                //
-                // if (display == "Resting Heartrate") {
-                //     rowObj.resource = _.get(row, 'resource');
-                //     // vueInstance.ohcVitals.push(rowObj);
+                //     vueInstance.ohcVitals.push(rowObj);
                 // }
 
-                //vueInstance.ohcVitals.push(rowObj);
 
             //     vueInstance.ohcVitals = _.sortBy(vueInstance.ohcVitals, [ function(o) {
             //     return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
             //     }]
             // );
 
-            // vueInstance.ohcVitals = _.uniqBy(vueInstance.ohcVitals, function(o) {
-            //     return o.code.coding[0].display;
-            //
-            // });
-
-
-
+            console.log(vueInstance.ohcVitals);
             vueInstance.surveyLoading = false;
 
             });
-            console.log(vueInstance.ohcVitals);
+
         });
     }
 }
