@@ -139,7 +139,7 @@ var app = new Vue({
             let results = {};
 
             _.each(searchVital, function(vital) {
-                (results[vital] = results[vital] || []).push(_.filter(res.entry, function(o)
+                (vueInstance.ohcVitals[vital] = vueInstance.ohcVitals[vital] || []).push(_.filter(res.entry, function(o)
                 { return _.includes(_.get(o, 'resource.id', null), vital); }));
 
                 // results = _.sortBy(results, [ function(o) {
@@ -148,8 +148,8 @@ var app = new Vue({
                 // );
                 vueInstance.surveyLoading = false;
             });
-            console.log(results);
-            vueInstance.ohcVitals.push(results);
+            // console.log(results);
+            // vueInstance.ohcVitals.push(results);
             console.log(vueInstance.ohcVitls);
 
         });
