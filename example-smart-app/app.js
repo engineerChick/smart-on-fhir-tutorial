@@ -111,7 +111,6 @@ var app = new Vue({
             vueInstance.surveyLoading = false;
         }).done(function (res) {
             console.log(res);
-            var ohcObj = {};
 
             // _.each(res.entry, function(row) {
             //     var rowObj = {};
@@ -143,9 +142,13 @@ var app = new Vue({
                 (results[vital] = results[vital] || []).push(_.filter(res.entry, function(o)
                 { return _.includes(_.get(o, 'resource.id', null), vital); }));
 
+                vueInstance.ohcVitals = _.sortBy(results, [ function(o) {
+                    return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
+                    }]
+                );
                 vueInstance.surveyLoading = false;
             });
-            console.log(results);
+            console.log(vueInstance.ohcVitlas);
 
         });
     }
