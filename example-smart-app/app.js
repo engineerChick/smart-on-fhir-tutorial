@@ -145,7 +145,7 @@ var app = new Vue({
                 vueInstance.ohcVitals.push( _.sortBy(results, [ function(o) {
                     return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
                     }]
-                ););
+                ));
                 vueInstance.surveyLoading = false;
             });
             console.log(vueInstance.ohcVitlas);
