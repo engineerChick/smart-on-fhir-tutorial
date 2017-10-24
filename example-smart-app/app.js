@@ -136,7 +136,7 @@ var app = new Vue({
             // vueInstance.surveyLoading = false;
             //
             // });
-            let searchVital = ['systolic', 'diastolic', 'weightKG', 'resting heartrate'];
+            let searchVital = ['systolic', 'diastolic', 'weightKG', 'restingHeartrate'];
             let results = {};
 
             _.each(searchVital, function(vital) {
