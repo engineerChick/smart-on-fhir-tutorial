@@ -150,7 +150,7 @@ var app = new Vue({
             });
             console.log(results);
             vueInstance.ohcVitals.push(results);
-            conosle.log(vueInstance.ohcVitls);
+            console.log(vueInstance.ohcVitls);
 
         });
 
