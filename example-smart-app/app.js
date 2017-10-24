@@ -129,10 +129,29 @@ var app = new Vue({
                     vueInstance.ohcVitals.push(rowObj);
                 }
 
-            vueInstance.ohcVitals = _.sortBy(vueInstance.ohcVitals, [ function(o) {
+                if (display == "Systolic") {
+                    rowObj.resource = _.get(row, 'resource');
+                    vueInstance.ohcVitals.push(rowObj);
+                }
+
+                if (display == "weightKG") {
+                    rowObj.resource = _.get(row, 'resource');
+                    vueInstance.ohcVitals.push(rowObj);
+                }
+
+                if (display == "Resting Heartrate") {
+                    rowObj.resource = _.get(row, 'resource');
+                    vueInstance.ohcVitals.push(rowObj);
+                }
+
+
+                vueInstance.ohcVitals = _.sortBy(vueInstance.ohcVitals, [ function(o) {
                 return new moment(o.effectiveDateTime).format('YYYY-MM-DD');
                 }]
             );
+
+            vueInstance.ohcVitals = _.uniqBy(vueInstance.ohcVitals, function(o) {
+                return o.code.coding[0].display;
 
             });
 
