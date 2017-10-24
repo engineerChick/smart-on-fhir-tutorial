@@ -29,19 +29,18 @@
   </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul v-if="ohcResponses.length > 0" class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <p class="nav-link">Name: {{ohcResponses[0].name}}</p>
+                <p id="name" class="nav-link"></p>
             </li>
             <li class="nav-item active">
-                <!-- <p id="gender" class="nav-link"></p> -->
-                <p class="nav-link">Sex: {{ohcResponses[0].gender}}</p>
+                <p id="gender" class="nav-link"></p>
             </li>
             <li class="nav-item active">
                 <p id="age" class="nav-link"></p>
             </li>
             <li class="nav-item active">
-                <p class="nav-link">DOB: {{ohcResponses[0].birthDate}}</p>
+                <p id="birthdate" class="nav-link"></p>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Address</a>
@@ -63,11 +62,6 @@
                 </div>
             </li>
         </ul>
-        <ul v-else>
-            <p v-if="surveyLoading" colspan="3" class="tableSubheading">Loading...</p>
-            <p v-else colspan="3" class="tableSubheading">No patient found</p>
-        </ul>
-
     </div>
 </nav>
 
@@ -86,53 +80,34 @@
                 <tr>
                     <th colspan="3" class="tableHeading">VITALS</th>
                 </tr>
-                <tr v-if="ohcVitals.length > 0" class="table table-secondary">
+                <tr class="table table-secondary">
                     <th class="tableSubHeading">Type</th>
                     <th class="tableSubHeading">Result</th>
                     <th class="tableSubHeading">Last</th>
                 </tr>
-                <tr v-else>
-                    <th v-if="ohcLoading" colspan="3" class="tableSubheading">Loading...</th>
-                    <th v-else colspan="3" class="tableSubheading">No survey results</th>
+                <tr class="tableInfomation">
+                    <td>BPD</td>
+                    <td id="diastolicbp"></td>
+                    <td></td>
                 </tr>
-                <!-- <tr v-for="response in ohcVitals" class="tableInfomation">
-                    <td>{{response.resource.code.coding[0].display}}</td>
-                    <td>{{response.resource.valueString}}</td>
-                    <td>{{response.lastDay}}</td>
-                </tr> -->
-                <!-- <tr class="tableInfomation">
+                <tr class="tableInfomation">
                     <td>BPS</td>
                     <td id="systolicbp"></td>
                     <td></td>
-                </tr>-->
-                <tr class="tableInfomation">
-                    <td>{{ohcVitals.diastolic[0].resource.code.coding[0].display}}</td>
-                    <td>{{ohcVitals.diastolic[0].resource.valueString}}</td>
-                    <td>{{ohcVitals.diastolic[0].resource.effectiveDateTime}}</td>
                 </tr>
-                <!-- <tr class="tableInfomation">
+                <tr class="tableInfomation">
                     <td>Pulse</td>
                     <td></td>
                     <td></td>
                 </tr>
                 <tr class="tableInfomation">
-                    <td>RR</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="tableInfomation">
-                    <td>Temp</td>
-                    <td></td>
+                    <td>LDL</td>
+                    <td id="ldl"></td>
                     <td></td>
                 </tr>
                 <tr class="tableInfomation">
-                    <td>SpO<sub>2</sub></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="tableInfomation">
-                    <td>Pain</td>
-                    <td></td>
+                    <td>HDL</td>
+                    <td id="hdl"></td>
                     <td></td>
                 </tr>
                 <tr class="tableInfomation">
@@ -154,7 +129,17 @@
                     <td>Circum/Girth</td>
                     <td></td>
                     <td></td>
-                </tr> -->
+                </tr>
+                <tr class="tableInfomation">
+                    <td>Temp</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="tableInfomation">
+                    <td>SpO<sub>2</sub></td>
+                    <td></td>
+                    <td></td>
+                </tr>
             </table>
         </div>
 
