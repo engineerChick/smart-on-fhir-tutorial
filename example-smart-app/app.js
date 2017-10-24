@@ -128,11 +128,12 @@ var app = new Vue({
                 let results = {};
 
                 _.each(searchVital, function(vital) {
-                    (results[vital] = results[vital] || []).push(_.filter(res.entry, function(o) 
+                    (results[vital] = results[vital] || []).push(_.filter(res.entry, function(o)
                     { return _.includes(_.get(o, 'resource.id', null), vital); }));
+                    vueInstance.ohcVitals.push(results);
                 });
 
-                vueInstance.ohcVitals.push(results);
+
                 // if (display == "Diastolic") {
                 //     rowObj.resource = _.get(row, 'resource');
                 //     vueInstance.ohcVitals.push(rowObj);
